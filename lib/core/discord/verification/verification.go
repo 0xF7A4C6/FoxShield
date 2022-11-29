@@ -18,7 +18,7 @@ var (
 
 func XoR(input, key string) (output string) {
 	for i := 0; i < len(input); i++ {
-			output += string(input[i] ^ key[i % len(key)])
+		output += string(input[i] ^ key[i%len(key)])
 	}
 
 	return hex.EncodeToString([]byte(output))
@@ -38,7 +38,7 @@ func (T *Task) CreateTaskChallenge() {
 	In, Out := T.PoW()
 
 	T.TaskChallenge = Challenge{
-		InToken: In,
+		InToken:     In,
 		OutResponse: Out,
 	}
 }

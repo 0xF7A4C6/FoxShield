@@ -41,7 +41,7 @@ func VerifyButton(s *discordgo.Session, i *discordgo.InteractionCreate) {
 			Flags: discordgo.MessageFlagsEphemeral,
 			Embeds: []*discordgo.MessageEmbed{
 				{
-					Title:        fmt.Sprintf("%s Something went wrong!", utils.Emoji_warn),
+					Title:       fmt.Sprintf("%s Something went wrong!", utils.Emoji_warn),
 					Description: "**Hey, not so fast you rascal!\nWe have detected that something is wrong, or the server is in maximum security mode.\n\nPlease complete the captcha below**",
 				},
 			},
