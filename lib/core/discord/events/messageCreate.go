@@ -1,7 +1,8 @@
 package events
 
 import (
-	"bot/lib/utils"
+    "bot/lib/core/discord/algorithm"
+    "bot/lib/utils"
 	"fmt"
 	"time"
 
@@ -14,7 +15,7 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == "ping" {
-		s.ChannelMessageSendEmbed(m.ChannelID, &discordgo.MessageEmbed{
+		_, _ = s.ChannelMessageSendEmbed(m.ChannelID, &discordgo.MessageEmbed{
 			Title: "`🏓` Pong!",
 			Fields: []*discordgo.MessageEmbedField{
 				{
@@ -28,4 +29,6 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			},
 		})
 	}
+
+    go algorithm.HandleNewJoin(s, m.GuildID, algorithm.GetScore(m.Author))
 }

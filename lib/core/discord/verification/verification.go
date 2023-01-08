@@ -139,6 +139,8 @@ func (T Task) EndTask(S *discordgo.Session) {
 		EmbedTitle = fmt.Sprintf("%s Verification passed.", utils.Emoji_green)
 	}
 
+	utils.Debug("*", fmt.Sprintf("[#%s] Verified %s (%s) | Score: %d | Time: %f | Behavior %s", T.TaskId, T.Score.User.Username, T.Score.User.ID, T.Score.Total, time.Now().Sub(T.StartTime).Seconds(), Behavior))
+
 	S.ChannelMessageSendEmbed(G.VerificationLogChannelID, &discordgo.MessageEmbed{
 		Title: EmbedTitle,
 		Fields: []*discordgo.MessageEmbedField{

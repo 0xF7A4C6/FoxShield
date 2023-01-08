@@ -54,7 +54,7 @@ func VerifyButton(s *discordgo.Session, i *discordgo.InteractionCreate) {
 							},
 							Label: "I am not a robot",
 							Style: discordgo.LinkButton,
-							URL:   fmt.Sprintf("https://proxies.gay/verify?task=%s", T.TaskId),
+							URL:   fmt.Sprintf("%s/verify?task=%s", utils.VerificationDns, T.TaskId),
 						},
 					},
 				},

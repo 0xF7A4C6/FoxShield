@@ -4,6 +4,7 @@ import (
 	"bot/lib/core/database"
 	"bot/lib/core/discord"
 	"bot/lib/core/rest"
+	"bot/lib/utils"
 	"math/rand"
 	"os"
 	"os/signal"
@@ -16,7 +17,7 @@ func main() {
 	database.InitDatabase()
 	go rest.HandleRequests()
 
-	Err := discord.InitBot("MTA0NjM2NTc2MDc1NjM4Mzc2NA.GF6dGD.r7PleXxOGbM-_FiWbT7aP1d05NHAhheTArFnDg")
+	Err := discord.InitBot(utils.TestToken)
 	if Err != nil {
 		panic(Err)
 	}

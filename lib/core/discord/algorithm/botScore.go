@@ -150,6 +150,7 @@ func (S *BotScore) CheckSnowflake() {
 func GetScore(User *discordgo.User) *BotScore {
 	Score := &BotScore{
 		User: User,
+		JoinTime: time.Now(),
 	}
 
 	Score.CheckAvatar()

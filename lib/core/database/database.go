@@ -15,15 +15,15 @@ var (
 )
 
 func InitDatabase() {
-	clientOptions := options.Client().ApplyURI("mongodb+srv://vichy:lmao@cluster0.hg7yr7j.mongodb.net/?retryWrites=true&w=majority")
-	client, err := mongo.Connect(Ctx, clientOptions)
+	ClientOption := options.Client().ApplyURI(utils.DbConnectUrl)
+	Client, Err := mongo.Connect(Ctx, ClientOption)
 
-	if utils.HandleError(err) {
-		panic(err)
+	if utils.HandleError(Err) {
+		panic(Err)
 	}
 
-	client.Connect(Ctx)
-	ServerCollection = client.Database("main").Collection("servers")
+    Client.Connect(Ctx)
+	ServerCollection = Client.Database("main").Collection("servers")
 }
 
 func AddGuild(GuildID string) {
@@ -35,14 +35,14 @@ func AddGuild(GuildID string) {
 		return
 	}
 
-	ServerCollection.InsertOne(Ctx, Server{
-		ID:                       primitive.NewObjectID(),
-		GuildID:                  GuildID,
-		VerificationLevel:        1,
-		VerificationTime:         500,
-		VerificationRoleID:       "",
-		VerificationLogChannelID: "",
-	})
+    _, _ = ServerCollection.InsertOne(Ctx, Server{
+        ID:                       primitive.NewObjectID(),
+        GuildID:                  GuildID,
+        VerificationLevel:        1,
+        VerificationTime:         500,
+        VerificationRoleID:       "",
+        VerificationLogChannelID: "",
+    })
 }
 
 func RemoveGuild(GuildID string) {

@@ -1,6 +1,10 @@
 package algorithm
 
-import "github.com/bwmarrin/discordgo"
+import (
+	"time"
+
+	"github.com/bwmarrin/discordgo"
+)
 
 var (
 	GuildHandlerList = make(map[string]GuildHandler)
@@ -14,9 +18,11 @@ type BotScore struct {
 	Banner        int
 	Total         int
 	User          *discordgo.User
+	JoinTime      time.Time
 }
 
 type GuildHandler struct {
-	LastedJoin map[string]BotScore
-	GuildID    string
+	LastedJoin    map[string]BotScore
+	GuildID       string
+	BannedAccount int
 }
