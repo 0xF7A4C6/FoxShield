@@ -2,10 +2,10 @@ package utils
 
 // Config
 var (
-	BotToken     = "MTA0NjM2NTc2MDc1NjM4Mzc2NA.GF6dGD.r7PleXxOGbM-_FiWbT7aP1d05NHAhheTArFnDg"
-	TestToken    = "MTA0NTY3NzYwNTQ0NzI5MDkwMA.GaMzye.7EHymgirtZJWuu7AzhO6Pg0Uxult6EoNLS9Ezo"
-	DbConnectUrl = "mongodb+srv://vichy:lmao@cluster0.hg7yr7j.mongodb.net/?retryWrites=true&w=majority"
-    VerificationDns = "https://proxies.gay"
+	BotToken     = ""
+	TestToken    = ""
+	DbConnectUrl = ""
+	VerificationDns = "https://proxies.gay"
 )
 
 // Emojis
